@@ -49,18 +49,18 @@ findGroupByCourse(course: Course): Group | undefined {
 return this.groups.find((group) => group.course === course);
 }
 
-getAllPeopleByRole(role: 'student' | 'teacher'): Person[] | void  {
+getAllPeopleByRole(role: Roles): Person[] | void  {
 switch (role) {
-  case "student":
-    return this.people.filter((person) => person.role === "student");
-  case "teacher":
-    return this.people.filter((person) => person.role === "teacher");
+  case Roles.student:
+    return this.people.filter((person) => person.role === Roles.student);
+  case Roles.teacher:
+    return this.people.filter((person) => person.role === Roles.teacher);
   default:
     return this.assertNeverRole(role);
 }
 }
 
-assertNeverRole(role: 'student' | 'teacher'): void {
+assertNeverRole(role: Roles): void {
 throw new Error(`Unhandled role: ${role}`);
 }
 }
@@ -134,7 +134,7 @@ birthDay: Date;
 id: number;
 gender: string;
 contactInfo: { email: string, phone: string }
-role: "student" | "teacher";
+role: Roles;
 
 constructor(info: {
 firstName: string, 
@@ -144,7 +144,7 @@ id: number,
 gender: string, 
 email: string, 
 phone: string
-}, role: "student" | "teacher") {
+}, role: Roles) {
 
 const { firstName, lastName, birthDay, gender, email, phone } = info;
 
@@ -191,7 +191,7 @@ email: string,
 phone: string
 }, 
 specializations: string[] = []) {
-super(info, "teacher");
+super(info, Roles.teacher);
 this.specializations = specializations;
 }
 
@@ -217,7 +217,7 @@ totalCredits: 0,
 gpa: 0,
 };
 enrolledCourses: Course[] = [];
-status: string;
+status: AcademicStatus;
 
 constructor(info: {
 firstName: string, 
@@ -228,12 +228,12 @@ gender: string,
 email: string, 
 phone: string
 }) {
-super(info, "student");
-this.status = "active";
+super(info, Roles.student);
+this.status = AcademicStatus.active;
 }
 
 enrollCourse(course: Course): void {
-if (this.status !== "active") {
+if (this.status !== AcademicStatus.active) {
   throw new UniversityError(
     "Cannot enroll: Student is not in active status"
   );
@@ -247,7 +247,7 @@ getAverageScore(): number {
 return this.academicPerformance.gpa;
 }
 
-updateAcademicStatus(newStatus: string): void {
+updateAcademicStatus(newStatus: AcademicStatus): void {
 this.status = newStatus;
 }
 
