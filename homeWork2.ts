@@ -6,7 +6,7 @@ interface IAcademicPerformance {
 interface IPersonInfo {
     firstName: string, 
     lastName: string, 
-    birthDay: string, 
+    birthDay: Date, 
     gender: Gender
     other: string
 }
@@ -22,11 +22,13 @@ type Gender = "male" | "female"
 
 type Role = "student" | "teacher"
 
+type AcademicStatus = "active" | "academicLeave" | "graduated" | "expelled"
+
 
 const Jim: FullPersonInfo = { 
     firstName: "John",
     lastName: "Doe",
-    birthDay: "12.03.1999",
+    birthDay: new Date(1999, 2, 12),
     gender: "male",
     other: "Student",
     email: "johndoe@university.com",
@@ -131,7 +133,7 @@ class Group {
         this.students.splice(index, 1);
     }
 
-    getAverageGroupScore() {
+    getAverageGroupScore(): number {
         if (this.students.length) {
         return 0;
     }
@@ -144,12 +146,16 @@ class Group {
         return totalScore / this.students.length;
     }
 
-    getStudents() {
+    getStudents(): Student[] {
         return [...this.students];
     }
 
-    getStudentById() {
-    // Add the ability to pass a single identifier and an array of identifiers
+    getStudentById(input: number | number[]): Student | Student[] | undefined {
+        if (Array.isArray(input)) {
+            return this.students.filter(student => input.includes(student.id));
+        } else {
+            return this.students.find(student => student.id === input);
+        }
     }
 }
 
@@ -158,7 +164,7 @@ class Person {
 
     firstName: string;
     lastName: string;
-    birthDay: string;
+    birthDay: Date;
     id: number;
     gender: Gender;
     contactInfo: IContactInfo;
@@ -176,11 +182,11 @@ class Person {
     this.role = role;
 }
 
-get fullName() {
+get fullName(): string {
     return `${this.lastName} ${this.firstName}`;
 }
 
-get age() {
+get age(): number {
     const today = new Date();
     let age = today.getFullYear() - this.birthDay.getFullYear();
     const monthDiff = today.getMonth() - this.birthDay.getMonth();
@@ -197,23 +203,23 @@ get age() {
 }
 
 class Teacher extends Person {
-    specializations = [];
-    courses = [];
+    specializations: string[] = [];
+    courses: Course[] = [];
 
-    constructor(info, specializations = []) {
+    constructor(info: FullPersonInfo, specializations: string[] = []) {
     super(info, "teacher");
     this.specializations = specializations;
     }
 
-    assignCourse(course) {
+    assignCourse(course: Course): void {  
     this.courses.push(course);
     }
 
-    removeCourse(courseName) {
+    removeCourse(courseName: Course["name"]): void {
     this.courses = this.courses.filter((course) => course.name !== courseName);
     }
 
-    getCourses() {
+    getCourses(): Course[] {
     return [...this.courses];
     }
 }
@@ -223,15 +229,15 @@ class Student extends Person {
     totalCredits: 0,
     gpa: 0,
     };
-    enrolledCourses = [];
-    status;
+    enrolledCourses: Course[] = [];
+    status: AcademicStatus
 
-    constructor(info) {
+    constructor(info: FullPersonInfo) {
     super(info, "student");
     this.status = "active";
     }
 
-    enrollCourse(course) {
+    enrollCourse(course: Course): void {
     if (this.status !== "active") {
     throw new UniversityError(
     "Cannot enroll: Student is not in active status"
@@ -242,15 +248,15 @@ class Student extends Person {
     this.academicPerformance.totalCredits += course.credits;
     }
 
-    getAverageScore() {
+    getAverageScore(): number {
     return this.academicPerformance.gpa;
     }
 
-    updateAcademicStatus(newStatus) {
+    updateAcademicStatus(newStatus: AcademicStatus): void {
     this.status = newStatus;
     }
 
-    getEnrolledCourses() {
+    getEnrolledCourses(): Course[] {
     return [...this.enrolledCourses];
     }
 }
