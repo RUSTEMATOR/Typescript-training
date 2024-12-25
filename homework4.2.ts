@@ -1,11 +1,11 @@
 import * as readline from 'readline'
 
 interface ICalculator {
-add(a: number, b: number): number
-substract(a: number, b: number): number
-multiply(a: number, b: number): number
-divide(a: number, b: number): number
-percentage(a: number, b: number): number
+    add(a: number, b: number): number
+    substract(a: number, b: number): number
+    multiply(a: number, b: number): number
+    divide(a: number, b: number): number
+    percentage(a: number, b: number): number
 }
 
 class Calculator implements ICalculator {
