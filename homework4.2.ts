@@ -82,7 +82,7 @@ rl.question(`Choose an operation to perform: \n${operations}\n`, (operation) => 
                 console.log(`Result: ${result}`)
             } catch(error) {
                 if (error) {
-                    console.error(error.message)
+                    console.error(error)
                 } else {
                     console.error('An unknown error occurred')
                 }
