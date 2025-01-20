@@ -16,7 +16,19 @@ class User {
         this.username = username;
         this.password = password;
     }
+
+    public static isUser(value: unknown): value is User {
+        return Boolean(
+            value &&
+                typeof value === "object" &&
+                "type" in value &&
+                value.type === UsersEnum.User &&
+                "username" in value &&
+                "password" in value
+                
+        )
   };
+}
   
 class Guest  {
     public readonly type: UsersEnum = UsersEnum.Guest
@@ -26,7 +38,18 @@ class Guest  {
     constructor(sessionId: string) {
         this.sessionId = sessionId;
     }
+
+    public static isGuest(value: unknown): value is Guest {
+        return Boolean(
+            value &&
+                typeof value === "object" &&
+                "type" in value &&
+                value.type === UsersEnum.Guest &&
+                "sessionId" in value
+                
+        )
   };
+}
 
 class Admin {
     public readonly type: UsersEnum = UsersEnum.Admin
@@ -40,6 +63,19 @@ class Admin {
         this.password = password;
         this.role = 'admin';
     }
+
+    public static isAdmin(value: unknown): value is Admin {
+        return Boolean(
+            value &&
+                typeof value === "object" &&
+                "type" in value &&
+                value.type === UsersEnum.Admin &&
+                "username" in value &&
+                "password" in value &&
+                "role" in value &&
+                value.role === 'admin'   
+        )
+  };
 }
 
 class ExternalUser {
@@ -50,25 +86,36 @@ class ExternalUser {
     constructor(oauthToken: string) {
         this.oauthToken = oauthToken;
     }
+
+    public static isExternalUser(value: unknown): value is ExternalUser {
+        return Boolean(
+            value &&
+                typeof value === "object" &&
+                "type" in value &&
+                value.type === UsersEnum.ExternalUser &&
+                "oauthToken" in value
+                
+        )
+  };
 }
 
 type UserTypes = User | Guest | Admin | ExternalUser
 
 
 function login(entity: UserTypes): void {
-    if (entity instanceof Guest){
+    if (Guest.isGuest(entity)){
         console.log(`User with sessionId: ${entity.sessionId} logged in.`);
     }
 
-    else if (entity instanceof Admin){
+    else if (Admin.isAdmin(entity)){
         console.log(`Logged in as admin with username: ${entity.username} and password: ${entity.password}`) 
     }
 
-    else if (entity instanceof User){
+    else if (User.isUser(entity)){
         console.log(`User with username: ${entity.username} and password: ${entity.password} logged in.`);
     }
 
-    else if (entity instanceof ExternalUser){
+    else if (ExternalUser.isExternalUser(entity)){
         console.log(`Logged in using external user with oauth token: ${entity.oauthToken}`)
     }
 
