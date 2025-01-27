@@ -1,16 +1,23 @@
-interface Result<T> {
-    status: 'success' | 'error';
-    data?: T;
-    error$?: string;
+interface SuccessResult<T> {
+    status: 'success'
+    data: T;
+    
 }
 
-async function handleResult(result: Result<Object>) {
+interface ErrorResult {
+    status: 'error'
+    error: string;
+}
+
+
+type Result = SuccessResult<Object> | ErrorResult 
+async function handleResult<T>(result: Result ) {
     switch (result.status){
         case 'success':
             console.log(result.data);
             return result.data;
         case 'error':
-            console.error(result.error$);
+            console.error(result.error);
             break;
         default:
             console.error('Unknown result status');
@@ -89,10 +96,7 @@ class Repository <T extends IIdentifiable> {
 
     getById(id: number): T | undefined {
         const item = this.items.find(item => item.id === id);
-        if(item === undefined) {
-            throw new Error("Repository is empty");
-        } 
-        else if (!item){
+        if (!item){
             throw new Error("Item not found in repository");    
         }
         else {
