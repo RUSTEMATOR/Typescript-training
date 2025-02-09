@@ -1,7 +1,7 @@
 type DeepMutable<Type> = {
     -readonly [Property in keyof Type]: Type[Property] extends object
             ? DeepMutable<Type[Property]> 
-            : DeepMutable<Type[Property]>
+            : Type[Property]
 }
 
 
