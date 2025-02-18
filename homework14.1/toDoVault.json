@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Buy groceries",
+    "content": "Milk, Bread, Eggs, Butter",
+    "creationDate": "2023-10-01 10:00:00",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 2,
+    "name": "Read a book",
+    "content": "Finish reading 'The Great Gatsby'",
+    "creationDate": "2023-10-02 14:30:00",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 3,
+    "name": "Workout",
+    "content": "Go for a 30-minute run",
+    "creationDate": "2023-10-03 07:00:00",
+    "updateDate": "",
+    "status": "completed",
+    "type": "default"
+  },
+  {
+    "id": 4,
+    "name": "Call mom",
+    "content": "Catch up with mom over the phone",
+    "creationDate": "2023-10-04 18:00:00",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 5,
+    "name": "Finish project",
+    "content": "Complete the final report for the project",
+    "creationDate": "2023-10-05 09:00:00",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 6,
+    "name": "babia",
+    "content": "fawefawefawefawefewfaewfa",
+    "creationDate": "2023-10-05 09:00:00",
+    "updateDate": "2025-02-18T01:40:44+02:00",
+    "status": "in-progress",
+    "type": "default"
+  },
+  {
+    "id": 8,
+    "name": "kl",
+    "content": "herthre",
+    "creationDate": "2025-02-18 18:51:14",
+    "updateDate": "2025-02-18T20:16:03+02:00",
+    "status": "active",
+    "type": "protected"
+  },
+  {
+    "id": 9,
+    "name": "af",
+    "content": "waf",
+    "creationDate": "2025-02-18 19:45:35",
+    "updateDate": "",
+    "status": "waiting",
+    "type": "protected"
+  }
+]
