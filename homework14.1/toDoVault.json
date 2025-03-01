@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Buy groceries",
+    "content": "Milk, Bread, Eggs, Butter",
+    "creationDate": "2023-10-01 10:00:00",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 2,
+    "name": "Read a book",
+    "content": "Finish reading 'The Great Gatsby'",
+    "creationDate": "2023-10-02 14:30:00",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 3,
+    "name": "Workout",
+    "content": "Go for a 30-minute run",
+    "creationDate": "2023-10-03 07:00:00",
+    "updateDate": "",
+    "status": "completed",
+    "type": "default"
+  },
+  {
+    "id": 4,
+    "name": "Call mom",
+    "content": "Catch up with mom over the phone",
+    "creationDate": "2023-10-04 18:00:00",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 5,
+    "name": "Finish project",
+    "content": "Complete the final report for the project",
+    "creationDate": "2023-10-05 09:00:00",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 11,
+    "name": "boa",
+    "content": "boboobo",
+    "creationDate": "",
+    "updateDate": "2025-02-23T21:13:23+02:00",
+    "status": "waiting",
+    "type": "default"
+  },
+  {
+    "id": 12,
+    "name": "ijfaiew",
+    "content": "afwefawef",
+    "creationDate": "",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 13,
+    "name": "djrtjdrtk",
+    "content": "htshdethserh",
+    "creationDate": "",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 14,
+    "name": "hoiyh",
+    "content": "gaserg",
+    "creationDate": "",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 15,
+    "name": "ijo",
+    "content": "o",
+    "creationDate": "",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 16,
+    "name": "fakpewfa",
+    "content": "agwaegawegawe",
+    "creationDate": "",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  },
+  {
+    "id": 17,
+    "name": "gas",
+    "content": "ewg",
+    "creationDate": "",
+    "updateDate": "",
+    "status": "active",
+    "type": "default"
+  }
+]
