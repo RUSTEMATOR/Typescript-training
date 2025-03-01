@@ -1,5 +1,4 @@
 export type Status = 'active' | 'cancelled' | 'completed' | 'waiting' | 'in-progress'
-
 export type Type = 'default' | 'protected'
 
 export interface IToDo {
@@ -13,7 +12,6 @@ export interface IToDo {
 }
 
 export interface IToDoBuilder {
-
     // setId(array: Array<Object>): this;
     setName(name: string): this;
     setContent(content: string): this;
