@@ -9,7 +9,7 @@ interface IAnimeService {
     search(criteria: Array<ISearchCriteria>): Array<IAnime>;
 }
 
-interface IAnime {
+export interface IAnime {
     id: number
     author: string
     year: string
@@ -17,7 +17,7 @@ interface IAnime {
     title: string
 }
 
-interface IAuthor {
+export interface IAuthor {
     id: number
     name: string
 }
@@ -31,7 +31,7 @@ interface ISearchCriteria {
 }
 
 
-class AnimeService implements IAnimeService {
+export default class AnimeService implements IAnimeService {
 
     private animeList: Array<IAnime> = [
         { id: 1, author: "Masashi Kishimoto", year: "2002", genre: "Shonen", title: "Naruto" },
@@ -131,45 +131,3 @@ class AnimeService implements IAnimeService {
 }
 
 const bookService = new AnimeService()
-
-console.log("Get anime:")
-console.log(bookService.getAnime())
-console.log()
-console.log("Get anime by id:")
-console.log(bookService.getAnimeById(1))
-console.log()
-console.log("Get anime by author:")
-console.log(bookService.getAnimesByAuthor("Masashi Kishimoto"))
-console.log()
-console.log("Get anime author:")
-console.log(bookService.getAuthors())
-console.log()
-console.log("Get author by id:")
-console.log(bookService.getAuthorById(1))
-console.log()
-console.log("Get author by anime id:")
-console.log(bookService.getAuthorByAnimeId(1))
-console.log()
-console.log("Search:")
-console.log(bookService.search({ id: 1 }))
-console.log()
-console.log("Search:")
-console.log(bookService.search({ author: "Masashi Kishimoto" }))
-console.log()
-console.log("Search:")
-console.log(bookService.search({ year: "2002" }))
-console.log()
-console.log("Search:")
-console.log(bookService.search({ genre: "Shonen" }))
-console.log()
-console.log("Search:")
-console.log(bookService.search({ title: "Naruto" }))
-console.log()
-console.log("Search:")
-console.log(bookService.search([{ genre: "Shonen" }, { author: "Tite Kubo" }]))
-console.log()
-console.log("Search:")
-console.log(bookService.search([{ year: "1999" }, { id: 3}]))
-
-
-

@@ -1,21 +1,21 @@
-interface ITranslations {
+export interface ITranslations {
     [language: string]: string | undefined;
 }
 
-interface IOptionalTranslations extends ITranslations {
+export interface IOptionalTranslations extends ITranslations {
     [language: string]: string | undefined;
     default?: string;
 }
 
 
-const appTranslaions: ITranslations = {
+export const appTranslaions: ITranslations = {
     en: 'Hello world',
     de: 'Hallo Welt',
     es: 'Hola Mundo',
     fr: 'Bonjour le monde'
 }
 
-const appOptionalTranslations: IOptionalTranslations = {
+export const appOptionalTranslations: IOptionalTranslations = {
     en: 'Hello world',
     de: 'Hallo Welt',
     es: 'Hola Mundo',
@@ -23,7 +23,7 @@ const appOptionalTranslations: IOptionalTranslations = {
     default: 'Translation not found'
 }
 
-const optionalSomething: IOptionalTranslations = {
+export const optionalSomething: IOptionalTranslations = {
     en: 'Hello world',
     de: 'Hallo Welt',
     es: 'Hola Mundo',

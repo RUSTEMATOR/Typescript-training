@@ -1,7 +1,7 @@
 import { ElipticalFigureBase, PolygonalFigureBase } from "./AbstractClasses/AbstractClasses"
 
 
-class Circle extends ElipticalFigureBase  {
+export class Circle extends ElipticalFigureBase  {
     public radius: number
 
     constructor(radius: number) {
@@ -32,7 +32,7 @@ const circle = new Circle(5)
 
 console.log(circle.printInfo())
 
-class Elips extends ElipticalFigureBase {
+export class Elips extends ElipticalFigureBase {
     radius: number
 
     constructor(radius: number){
@@ -65,7 +65,7 @@ console.log(elips.printInfo())
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-class Square extends PolygonalFigureBase {
+export class Square extends PolygonalFigureBase {
     constructor(sides: number, sideLength: number) {
         super('Square', 'Yellow', sides, sideLength)
     }
@@ -94,7 +94,7 @@ const square = new Square(4, 5)
 console.log(square.printInfo())
 
 
-class Rectangle extends PolygonalFigureBase {
+export class Rectangle extends PolygonalFigureBase {
     constructor(sides: number, sideLength: number) {
         super('Rectangle', 'Green', sides, sideLength)
     }
@@ -121,7 +121,7 @@ const rectangle = new Rectangle(4, 5)
 console.log(rectangle.printInfo())
 
 
-class Triangle extends PolygonalFigureBase {
+export class Triangle extends PolygonalFigureBase {
     sideA: number;
     sideB: number;
     sideC: number;
@@ -179,7 +179,7 @@ console.log(triangle2.printInfo());
 
 
 
-class Polygon {
+export class Polygon {
     name: string;
     color: string;
     sides: number;

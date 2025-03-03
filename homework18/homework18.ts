@@ -1,4 +1,4 @@
-class Bank {
+export class Bank {
     private static instance: Bank
     private accounts: Map<string, BankAccount> = new Map()
 
@@ -33,7 +33,7 @@ class Bank {
     }
 }
 
-class Client {
+export class Client {
     private firstName: string 
     private lastName: string
     private accounts: Map<string, BankAccount> = new Map()
@@ -56,7 +56,7 @@ class Client {
     }
 }
 
-class BankAccount {
+export class BankAccount {
     private _balance: number
     private _owner: Client;
     public readonly accountNumber: string
@@ -94,12 +94,12 @@ class BankAccount {
 }
 
 
-interface ICommand {
+export interface ICommand {
     execute(): void;
     undo(): void;
   }
   
-  class DepositCommand implements ICommand {
+export class DepositCommand implements ICommand {
     constructor(private account: BankAccount, private amount: number) {}
     execute(): void {
       this.account.deposit(this.amount);
@@ -109,7 +109,7 @@ interface ICommand {
     }
   }
   
-  class WithdrawCommand implements ICommand {
+export class WithdrawCommand implements ICommand {
     constructor(private account: BankAccount, private amount: number) {}
     execute(): void {
       this.account.withdraw(this.amount);
@@ -119,7 +119,7 @@ interface ICommand {
     }
   }
 
-  class TransactionManager {
+export class TransactionManager {
     private history: ICommand[] = [];
     private undone: ICommand[] = [];
   

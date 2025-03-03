@@ -1,4 +1,3 @@
-import { checkIfProtected } from '../../decorators/checkIfProtected';
 import { FILE_PATH } from '../../data/constants';
 import { IToDo, Status, Type } from '../../interfaces/toDoInterface/toDoInterface';
 import { IDestroyParams } from '../../interfaces/destroyParametersInterface/destroyParametersInterface';
@@ -59,7 +58,7 @@ export class ToDoModel {
         this.writeToDos(todos);
     }
 
-    @checkIfProtected
+
     async destroy(params: IDestroyParams): Promise<void> {
         let todos = this.readToDos();
 

@@ -8,7 +8,7 @@ interface ICalculator {
     percentage(a: number, b: number): number
 }
 
-class Calculator implements ICalculator {
+export default class Calculator implements ICalculator {
     add(a: number, b: number): number {
         return a + b
     }
