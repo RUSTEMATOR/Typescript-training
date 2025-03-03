@@ -3,7 +3,7 @@ import { ToDoController } from "./src/classes/controller/ToDoController";
 
 // homeWork14.1.ts
 
-async function main() {
+export async function main() {
     const controller = new ToDoController();
     const view = new ToDoView();
 

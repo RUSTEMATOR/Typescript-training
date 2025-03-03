@@ -1,26 +1,26 @@
-type CreateUser = {
+export type CreateUser = {
     type: 'CREATE_USER',
     payload: { name: string, age: number } 
 }
 
-type UpdateUser = {
+export type UpdateUser = {
     type: 'UPDATE_USER',
     payload: { userId: number, name?: string, age?: number } 
 }
 
-type DeleteUser = {
+export type DeleteUser = {
     type: 'DELETE_USER',
     payload: { userId: number } 
 }
 
-type BlockUser = {
+export type BlockUser = {
     type: 'BLOCK_USER',
     payload: { userId: number, reason: string } 
 }
 
-type Action = CreateUser | UpdateUser | DeleteUser | BlockUser 
+export type Action = CreateUser | UpdateUser | DeleteUser | BlockUser 
 
-function handleAction(action: Action) {
+export function handleAction(action: Action) {
     switch (action.type){
         case 'CREATE_USER': 
             console.log(action.type)
